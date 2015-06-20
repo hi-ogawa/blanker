@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'cont0/blank'
+  post 'cont0/blank'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
