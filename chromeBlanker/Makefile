@@ -1,3 +1,2 @@
-all: popup.haml upload.haml
+all: popup.haml
 	haml popup.haml popup.html
-	haml upload.haml upload.html

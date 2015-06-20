@@ -2,11 +2,11 @@
     "manifest_version": 2,
 
     "name": "word blanker",
-    "description": "make words blank in texts",
+    "description": "make words blank in texts (for english learning?)",
     "version": "1.0",
 
     "browser_action": {
-	"default_icon": "icon.png",
+	"default_icon": "icon2.png",
 	"default_popup": "popup.html"
     },
     "background": {
@@ -18,8 +18,7 @@
 	"<all_urls>"
     ],
     "content_scripts": [ {
-	"js": [ "libs/jquery-2.1.4.min.js", "libs/jquery-ui.js", "contentScript.js"],
-	"css": ["libs/jquery-ui.css"],
+	"js": [ "libs/jquery-2.1.4.min.js", "contentScript.js"],
 	"matches": [ "http://*/*", "https://*/*"]
     }]
 }
