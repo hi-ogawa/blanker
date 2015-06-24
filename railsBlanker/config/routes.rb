@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   post 'cont0/blank'
 
+  get 'cont0/index'
 
+  root 'cont0#index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

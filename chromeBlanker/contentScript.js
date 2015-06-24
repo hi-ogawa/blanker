@@ -84,9 +84,11 @@ $(function(){
 
 	    var $dom = $($(tag)[index]);
 	    $dom.empty();
-	    txts.forEach(function(txt){
+	    function loop(){
+		var txt = txts.shift();
 		chrome.runtime.sendMessage({
-    		    url: "http://localhost:3000/cont0/blank",
+    		    url: "http://160.16.87.98:3000/cont0/blank",
+    		    // url: "http://localhost:3000/cont0/blank",
     		    type: "0",
     		    sentence: txt
 		}, function(responseText) {
@@ -95,8 +97,27 @@ $(function(){
 
 		    makeBlankableDom($dom, xml);
 		    $dom.append("<br>");
+		    
+		    if(txts.length > 0){ loop(); }
 		});
-	    });
+	    }
+	    loop();
+
+	    //// possibly not properly ordered
+	    // txts.forEach(function(txt){
+	    // 	chrome.runtime.sendMessage({
+    	    // 	    url: "http://160.16.87.98:3000/cont0/blank",
+    	    // 	    // url: "http://localhost:3000/cont0/blank",
+    	    // 	    type: "0",
+    	    // 	    sentence: txt
+	    // 	}, function(responseText) {
+    	    // 	    console.log("--- post response ---");
+	    // 	    var xml = $.parseXML(responseText);
+
+	    // 	    makeBlankableDom($dom, xml);
+	    // 	    $dom.append("<br>");
+	    // 	});
+	    // });
 	}
     })
 })
