@@ -82,7 +82,8 @@ function blank(){
 	"border": "solid 1px black",
 	"height": "400px",
 	"width": "300px",
-	"overflow-y": "auto"
+	"overflow-y": "scroll",
+	"-webkit-overflow-scrolling": "touch"
     });
     
     function loop(){
