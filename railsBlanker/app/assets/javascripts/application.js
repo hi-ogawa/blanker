@@ -48,12 +48,16 @@ function makeBlankableDom($dom, xml){
 				 "border-bottom-color": col_before,
 				 "color": col_after});
 
-    $par.find("span.blank").click(function(){
+    $par.find("span.blank").click(function(e){
+	$dom.append("<br>");
 	if( $(this).css("color") == col_before ){
 	    $(this).css("color", col_after);
 	}else{
 	    $(this).css("color", col_before);
 	}
+	setTimeout(function(){
+	    $dom.find("br").last().remove();
+	}, 500);
     });
 
     var b = true;
