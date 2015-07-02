@@ -95,8 +95,7 @@ function blank(){
 
 	var xhr = new XMLHttpRequest();
 	var params = ["sentence=" + encodeURIComponent(txt)]
-	xhr.open("POST", "http://160.16.87.98:3000/cont0/blank", true);
-	// xhr.open("POST", "http://localhost:3000/cont0/blank", true);
+	xhr.open("POST", "http://often-test-app.xyz:3000/cont0/blank", true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhr.onreadystatechange = function() {
 	    if (xhr.readyState == 4) {

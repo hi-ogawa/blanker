@@ -87,8 +87,7 @@ $(function(){
 	    function loop(){
 		var txt = txts.shift();
 		chrome.runtime.sendMessage({
-    		    url: "http://160.16.87.98:3000/cont0/blank",
-    		    // url: "http://localhost:3000/cont0/blank",
+    		    url: "http://often-test-app.xyz:3000/cont0/blank",
     		    type: "0",
     		    sentence: txt
 		}, function(responseText) {
@@ -102,35 +101,6 @@ $(function(){
 		});
 	    }
 	    loop();
-
-	    //// possibly not properly ordered
-	    // txts.forEach(function(txt){
-	    // 	chrome.runtime.sendMessage({
-    	    // 	    url: "http://160.16.87.98:3000/cont0/blank",
-    	    // 	    // url: "http://localhost:3000/cont0/blank",
-    	    // 	    type: "0",
-    	    // 	    sentence: txt
-	    // 	}, function(responseText) {
-    	    // 	    console.log("--- post response ---");
-	    // 	    var xml = $.parseXML(responseText);
-
-	    // 	    makeBlankableDom($dom, xml);
-	    // 	    $dom.append("<br>");
-	    // 	});
-	    // });
 	}
     })
 })
-
-// $(window).keydown(function (e) {
-//     // the list of key codes
-//     // http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
-
-//     if(e.altKey && e.which == 66){
-// 	listParentDoms();
-// 	return;
-//     }    
-//     if(e.altKey && e.shiftKey && e.which == 66){
-//     	return;
-//     }
-// });
