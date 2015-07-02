@@ -16,9 +16,9 @@ First, I implemented the program which made words in sentence blank randomly, th
 There are two ways to use this.
 	
 - just access [here](http://often-test-app:3000/) and try it.
-- or, you can use it with a chrome extension which can be installed here.
-  Here is how it works:
-  TODO: I have to give some videos.
+- or, you can use it with a chrome extension which can be installed (but actually the chrome extension is not published, sorry).
+
+[![Alt text for your video](http://img.youtube.com/vi/HiqNG8jhgA8/0.jpg)](https://youtu.be/HiqNG8jhgA8)
 
 ## How it is implemented
 
