@@ -2,23 +2,28 @@
     "manifest_version": 2,
 
     "name": "word blanker",
-    "description": "make words blank in texts (for english learning?)",
+    "description": "make words blank in texts based on their POS (part of speech)",
     "version": "1.0",
 
     "browser_action": {
-	"default_icon": "icon2.png",
-	"default_popup": "popup.html"
+	"default_icon": "icons/icon2.png"
+    },
+    "options_ui": {
+	"page": "options/options.html",
+	"chrome_style": true
     },
     "background": {
-    	"scripts": ["eventPage.js"],
+    	"scripts": ["eventPage/eventPage.js"],
     	"persistent": false
     },
     "permissions": [
+	"storage",
 	"activeTab",
 	"<all_urls>"
     ],
     "content_scripts": [ {
-	"js": [ "libs/jquery-2.1.4.min.js", "contentScript.js"],
+	"js": [ "jslib/jquery.js",
+		"contentScript/contentScript.js"],
 	"matches": [ "http://*/*", "https://*/*"]
     }]
 }

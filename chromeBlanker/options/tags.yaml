@@ -1,0 +1,145 @@
+---
+- - CC
+  - Coordinating conjunction
+  - - ex1
+    - ex2
+- - CD
+  - Cardinal number
+  - - ex1
+    - ex2
+- - DT
+  - Determiner
+  - - ex1
+    - ex2
+- - EX
+  - Existential there
+  - - ex1
+    - ex2
+- - FW
+  - Foreign word
+  - - ex1
+    - ex2
+- - IN
+  - Preposition or subordinating conjunction
+  - - ex1
+    - ex2
+- - JJ
+  - Adjective
+  - - ex1
+    - ex2
+- - JJR
+  - Adjective, comparative
+  - - ex1
+    - ex2
+- - JJS
+  - Adjective, superlative
+  - - ex1
+    - ex2
+- - LS
+  - List item marker
+  - - ex1
+    - ex2
+- - MD
+  - Modal
+  - - ex1
+    - ex2
+- - NN
+  - Noun, singular or mass
+  - - ex1
+    - ex2
+- - NNS
+  - Noun, plural
+  - - ex1
+    - ex2
+- - NNP
+  - Proper noun, singular
+  - - ex1
+    - ex2
+- - NNPS
+  - Proper noun, plural
+  - - ex1
+    - ex2
+- - PDT
+  - Predeterminer
+  - - ex1
+    - ex2
+- - POS
+  - Possessive ending
+  - - ex1
+    - ex2
+- - PRP
+  - Personal pronoun
+  - - ex1
+    - ex2
+- - PRP$
+  - Possessive pronoun
+  - - ex1
+    - ex2
+- - RB
+  - Adverb
+  - - ex1
+    - ex2
+- - RBR
+  - Adverb, comparative
+  - - ex1
+    - ex2
+- - RBS
+  - Adverb, superlative
+  - - ex1
+    - ex2
+- - RP
+  - Particle
+  - - ex1
+    - ex2
+- - SYM
+  - Symbol
+  - - ex1
+    - ex2
+- - TO
+  - to
+  - - ex1
+    - ex2
+- - UH
+  - Interjection
+  - - ex1
+    - ex2
+- - VB
+  - Verb, base form
+  - - ex1
+    - ex2
+- - VBD
+  - Verb, past tense
+  - - ex1
+    - ex2
+- - VBG
+  - Verb, gerund or present participle
+  - - ex1
+    - ex2
+- - VBN
+  - Verb, past participle
+  - - ex1
+    - ex2
+- - VBP
+  - Verb, non-3rd person singular present
+  - - ex1
+    - ex2
+- - VBZ
+  - Verb, 3rd person singular present
+  - - ex1
+    - ex2
+- - WDT
+  - Wh-determiner
+  - - ex1
+    - ex2
+- - WP
+  - Wh-pronoun
+  - - ex1
+    - ex2
+- - WP$
+  - Possessive wh-pronoun
+  - - ex1
+    - ex2
+- - WRB
+  - Wh-adverb
+  - - ex1
+    - ex2

@@ -1,0 +1,15 @@
+task :default => [:js, :html]
+
+coffees = FileList.new("**/*.coffee")
+hamls = FileList.new("**/*.haml")
+
+task :js => coffees.ext(".js")
+task :html => hamls.ext(".html")
+
+rule '.js' => '.coffee' do |t|
+  sh "coffee -c #{t.source}"
+end
+
+rule '.html' => '.haml' do |t|
+  sh "haml #{t.source} #{t.name}"
+end

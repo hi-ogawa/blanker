@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %title Specify which POS you want to be blank
+    %script{src: '/jslib/jquery.js'}
+    %script{src: '/options/options.js'}
+    %style
+      body { padding: 10px; }
+  %body
+
+    %h4 Select Part of Speech (default is my favorite set)
+    - require 'yaml'
+    - tags = YAML.load(File.open('options/tags-with-example.yaml').read)
+    %select#POS{multiple: 'multiple', size: 15}
+      - tags.each do |val, tag, exs|
+        %option{value: val}= "#{tag} - (#{exs.join(', ')})"
+    %br
+
+    %input#be{type: 'checkbox'} exclude every conjugation of verb 'be'
+    %br
+    %button#default Default
+    %button#save Save
+    %span#state
+    %br
+
+    %h4 Some References
+    - links = [['http://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html        ', 'Part of Speech Tag List    '],
+               ['https://sites.google.com/site/partofspeechhelp/home/dt_pdt                        ', 'Part of Speech Tutorial    '],
+               ['http://nlp.stanford.edu:8080/parser/index.jsp                                     ', 'Stanford Parser Online     '],
+               ['http://www.yourdictionary.com/index.php/pdf/articles/162.partsofspeechexamples.pdf', 'Examples of Parts of Speech'],
+               ['http://conjugator.reverso.net/conjugation-english-verb-be.html                    ', "Conjugation of Verb 'Be'   "]]
+    %ul           
+    - links.each do |src, name|
+      %li
+        %a{href: src}= name
