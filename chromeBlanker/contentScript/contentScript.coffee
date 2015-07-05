@@ -1,10 +1,12 @@
 ## load chrome extension options
 pos_set = null
 be_set = true
-bes = [ 'be'
-        'am', 'are', 'is'
-        'was', 'ware'
-        'being', 'been' ]
+bes = [ 'be'                # infinitive
+        'am', 'are', 'is'   # present
+        'was', 'ware'       # past
+        'being', 'been'     # continuous, past particle
+        "'m", "'re", "'s"   # abbreviation
+      ]
 
 chrome.storage.sync.get {pos_set: null,  be_set: true}, (items) ->
             pos_set = items.pos_set
@@ -15,36 +17,41 @@ chrome.storage.sync.get {pos_set: null,  be_set: true}, (items) ->
 #                       <span class='blanker-RP'> off </span>              </span>
 
 blankableChild = (visible, invisible, $sp, xml) ->
-        # wrap all words by span with their POS tags
-        $ls = $(xml).find("wt").map ->
+        $sp.empty()
+        $(xml).find("wt").each ->
            pos =  $(this).find("pos").text()
            word = $(this).find("word").text()
            word =
                 if      pos.match(/^\-LRB\-$/) then "("
                 else if pos.match(/^\-LRB\-$/) then ")"
                 else                                word
-           $("<span>").attr("class", "blanker-#{pos}").text(word)
-        $sp.empty()
-        $ls.each -> $sp.append $(this), ' '
+           # wrap all words by span with their POS tags
+           $sp_word = $("<span>").attr("class", "blanker-#{pos}").text(word)     
 
-        # apply blank effect based on options
-        pos_set.forEach (pos) ->
-                $sp.find(".blanker-#{pos}").addClass("blankable")
+           # add blankable class based on options
+           if pos_set.indexOf(pos) isnt -1   # which means pos is a member of pos_set
+                console.log "you're gonna be blank - #{pos} - #{word}"
+                $sp_word.addClass("blankable")
 
-        $sp.find(".blankable").css "border-bottom": "1px solid #{visible}"
-                              .click ->
-                                if $(this).css("color") is visible then $(this).css "color": invisible
-                                else                                    $(this).css "color": visible
+           # be verb is exceptional     
+           if be_set and pos.match(/^VB/) and bes.indexOf(word) isnt -1
+                console.log "but you're exceptional be - #{word}"
+                $sp_word.removeClass("blankable")
+                
+           $sp.append $sp_word, ' '
+
+        $blankables = $sp.find(".blankable").css "color": invisible 
+        $blankables.css "border-bottom": "1px solid #{visible}"
+                   .click ->
+                        if $(this).css("color") is visible then $(this).css "color": invisible
+                        else                                    $(this).css "color": visible
                                         
         b = false
         $sp.click (e) ->
                 e.stopPropagation();
                 if e.altKey
-                        if b then $sp.find(".blankable").css "color": invisible
-                        else      $sp.find(".blankable").css "color": visible
+                        $blankables.css "color": (if b then invisible else visible)
                         b = !b
-        $sp.find(".blankable").css "color": invisible                        
-
 
 
 #  given:      <parent>    ..sentence1..    <br>
@@ -61,11 +68,11 @@ blankableParent = ($dom) ->
         loopy = ->
                 return if txts.length is 0
                 $sp = txts.shift()
-                chrome.runtime.sendMessage({
-                        url: "http://often-test-app.xyz:3000/cont0/chrome_blank"
+                chrome.runtime.sendMessage
+                        url: "http://often-test-app.xyz:3000/cont0/blank"
                         type: "0"
                         sentence: $sp.text()
-                        }, (responseText) ->
+                        , (responseText) ->
                                 xml = $.parseXML(responseText)
                                 blankableChild(
                                         $dom.css("color"),
@@ -73,7 +80,6 @@ blankableParent = ($dom) ->
                                         $sp,
                                         xml)
                                 loopy()
-                )
         loopy()
 
 

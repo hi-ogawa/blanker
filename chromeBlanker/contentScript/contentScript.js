@@ -6,7 +6,7 @@
 
   be_set = true;
 
-  bes = ['be', 'am', 'are', 'is', 'was', 'ware', 'being', 'been'];
+  bes = ['be', 'am', 'are', 'is', 'was', 'ware', 'being', 'been', "'m", "'re", "'s"];
 
   chrome.storage.sync.get({
     pos_set: null,
@@ -17,22 +17,28 @@
   });
 
   blankableChild = function(visible, invisible, $sp, xml) {
-    var $ls, b;
-    $ls = $(xml).find("wt").map(function() {
-      var pos, word;
+    var $blankables, b;
+    $sp.empty();
+    $(xml).find("wt").each(function() {
+      var $sp_word, pos, word;
       pos = $(this).find("pos").text();
       word = $(this).find("word").text();
       word = pos.match(/^\-LRB\-$/) ? "(" : pos.match(/^\-LRB\-$/) ? ")" : word;
-      return $("<span>").attr("class", "blanker-" + pos).text(word);
+      $sp_word = $("<span>").attr("class", "blanker-" + pos).text(word);
+      if (pos_set.indexOf(pos) !== -1) {
+        console.log("you're gonna be blank - " + pos + " - " + word);
+        $sp_word.addClass("blankable");
+      }
+      if (be_set && pos.match(/^VB/) && bes.indexOf(word) !== -1) {
+        console.log("but you're exceptional be - " + word);
+        $sp_word.removeClass("blankable");
+      }
+      return $sp.append($sp_word, ' ');
     });
-    $sp.empty();
-    $ls.each(function() {
-      return $sp.append($(this), ' ');
+    $blankables = $sp.find(".blankable").css({
+      "color": invisible
     });
-    pos_set.forEach(function(pos) {
-      return $sp.find(".blanker-" + pos).addClass("blankable");
-    });
-    $sp.find(".blankable").css({
+    $blankables.css({
       "border-bottom": "1px solid " + visible
     }).click(function() {
       if ($(this).css("color") === visible) {
@@ -46,23 +52,14 @@
       }
     });
     b = false;
-    $sp.click(function(e) {
+    return $sp.click(function(e) {
       e.stopPropagation();
       if (e.altKey) {
-        if (b) {
-          $sp.find(".blankable").css({
-            "color": invisible
-          });
-        } else {
-          $sp.find(".blankable").css({
-            "color": visible
-          });
-        }
+        $blankables.css({
+          "color": (b ? invisible : visible)
+        });
         return b = !b;
       }
-    });
-    return $sp.find(".blankable").css({
-      "color": invisible
     });
   };
 
@@ -82,7 +79,7 @@
       }
       $sp = txts.shift();
       return chrome.runtime.sendMessage({
-        url: "http://often-test-app.xyz:3000/cont0/chrome_blank",
+        url: "http://often-test-app.xyz:3000/cont0/blank",
         type: "0",
         sentence: $sp.text()
       }, function(responseText) {

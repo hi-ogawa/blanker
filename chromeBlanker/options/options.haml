@@ -8,6 +8,13 @@
       body { padding: 10px; }
   %body
 
+    %h4 How to Use
+    %ul
+      %li click the region with pressing Alt-key
+      %li once some words are made blank, clicking an underlined word toggles its appearance
+      %li click with Alt-key again toggles the whole blank words appearance
+      %li you can choose what to blank by selecting part of speech here
+
     %h4 Select Part of Speech (default is my favorite set)
     - require 'yaml'
     - tags = YAML.load(File.open('options/tags-with-example.yaml').read)
