@@ -1,0 +1,122 @@
+---
+- - CC
+  - Coordinating conjunction
+  - - and
+- - CD
+  - Cardinal number
+  - - one
+    - two
+- - DT
+  - Determiner
+  - - a
+    - the
+- - EX
+  - Existential there
+  - - there
+- - FW
+  - Foreign word
+  - - "?"
+- - IN
+  - Preposition or subordinating conjunction
+  - - of
+    - with
+- - JJ
+  - Adjective
+  - - passionate
+- - JJR
+  - Adjective, comparative
+  - - easier
+- - JJS
+  - Adjective, superlative
+  - - cutest
+- - LS
+  - List item marker
+  - - "?"
+- - MD
+  - Modal
+  - - can
+    - would
+- - NN
+  - Common Noun, singular or mass
+  - - person
+    - advice
+- - NNS
+  - Common Noun, plural
+  - - trains
+- - NNP
+  - Proper noun, singular
+  - - Paris
+- - NNPS
+  - Proper noun, plural
+  - - Cherokees
+- - PDT
+  - Predeterminer
+  - - such
+- - POS
+  - Possessive ending
+  - - boy's
+- - PRP
+  - Personal pronoun
+  - - I
+    - we
+- - PRP$
+  - Possessive pronoun
+  - - my
+    - our
+- - RB
+  - Adverb
+  - - not
+    - hopefully
+- - RBR
+  - Adverb, comparative
+  - - harder
+- - RBS
+  - Adverb, superlative
+  - - hardest
+- - RP
+  - Particle
+  - - "?"
+- - SYM
+  - Symbol
+  - - "?"
+- - TO
+  - to
+  - - to
+- - UH
+  - Interjection
+  - - oh
+- - VB
+  - Verb, base form
+  - - go
+    - come
+- - VBD
+  - Verb, past tense
+  - - went
+- - VBG
+  - Verb, gerund or present participle
+  - - going
+- - VBN
+  - Verb, past participle
+  - - eaten
+- - VBP
+  - Verb, non-3rd person singular present
+  - - are
+- - VBZ
+  - Verb, 3rd person singular present
+  - - goes
+    - comes
+- - WDT
+  - Wh-determiner
+  - - "?"
+- - WP
+  - Wh-pronoun
+  - - what
+    - who
+- - WP$
+  - Possessive wh-pronoun
+  - - whom
+    - whose
+- - WRB
+  - Wh-adverb
+  - - when
+    - where
