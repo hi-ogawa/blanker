@@ -1,7 +1,21 @@
-%h3 make verbs and adjectives in texts blank
+%h3 blanker
 
 %textarea{:rows => "3", :cols => "30"}  
 %br
-%button{:onclick => "blank()"} go!
+
+%h4 Select Part of Speech (default is my favorite set)
+- require 'yaml'
+- tags = YAML.load(File.open(Rails.root.join 'lib', 'tags-with-example.yaml').read)
+%select#POS{multiple: 'multiple', size: 15}
+  - tags.each do |val, tag, exs|
+    %option{value: val}= "#{tag} - (#{exs.join(', ')})"
+%br
+
+%input#be{type: 'checkbox'} exclude every conjugation of verb 'be'
+%br
+%button#default default
+
+%button#blank go!
 %button#unblank unblank!
+
 .texts
