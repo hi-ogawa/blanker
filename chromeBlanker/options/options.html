@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Specify which POS you want to be blank</title>
+    <script src='/jslib/jquery.js'></script>
+    <script src='/options/options.js'></script>
+    <style>
+      body { padding: 10px; }
+    </style>
+  </head>
+  <body>
+    <h4>How to Use</h4>
+    <ul>
+      <li>click the region with pressing Alt-key</li>
+      <li>once some words are made blank, clicking an underlined word toggles its appearance</li>
+      <li>click with Alt-key again toggles the whole blank words appearance</li>
+      <li>you can choose what to blank by selecting part of speech here</li>
+    </ul>
+    <h4>Select Part of Speech (default is my favorite set)</h4>
+    <select id='POS' multiple='multiple' size='15'>
+      <option value='CC'>Coordinating conjunction - (and)</option>
+      <option value='CD'>Cardinal number - (one, two)</option>
+      <option value='DT'>Determiner - (a, the)</option>
+      <option value='EX'>Existential there - (there)</option>
+      <option value='FW'>Foreign word - (?)</option>
+      <option value='IN'>Preposition or subordinating conjunction - (of, with)</option>
+      <option value='JJ'>Adjective - (passionate)</option>
+      <option value='JJR'>Adjective, comparative - (easier)</option>
+      <option value='JJS'>Adjective, superlative - (cutest)</option>
+      <option value='LS'>List item marker - (?)</option>
+      <option value='MD'>Modal - (can, would)</option>
+      <option value='NN'>Common Noun, singular or mass - (person, advice)</option>
+      <option value='NNS'>Common Noun, plural - (trains)</option>
+      <option value='NNP'>Proper noun, singular - (Paris)</option>
+      <option value='NNPS'>Proper noun, plural - (Cherokees)</option>
+      <option value='PDT'>Predeterminer - (such)</option>
+      <option value='POS'>Possessive ending - (boy's)</option>
+      <option value='PRP'>Personal pronoun - (I, we)</option>
+      <option value='PRP$'>Possessive pronoun - (my, our)</option>
+      <option value='RB'>Adverb - (not, hopefully)</option>
+      <option value='RBR'>Adverb, comparative - (harder)</option>
+      <option value='RBS'>Adverb, superlative - (hardest)</option>
+      <option value='RP'>Particle - (?)</option>
+      <option value='SYM'>Symbol - (?)</option>
+      <option value='TO'>to - (to)</option>
+      <option value='UH'>Interjection - (oh)</option>
+      <option value='VB'>Verb, base form - (go, come)</option>
+      <option value='VBD'>Verb, past tense - (went)</option>
+      <option value='VBG'>Verb, gerund or present participle - (going)</option>
+      <option value='VBN'>Verb, past participle - (eaten)</option>
+      <option value='VBP'>Verb, non-3rd person singular present - (are)</option>
+      <option value='VBZ'>Verb, 3rd person singular present - (goes, comes)</option>
+      <option value='WDT'>Wh-determiner - (?)</option>
+      <option value='WP'>Wh-pronoun - (what, who)</option>
+      <option value='WP$'>Possessive wh-pronoun - (whom, whose)</option>
+      <option value='WRB'>Wh-adverb - (when, where)</option>
+    </select>
+    <br>
+    <input id='be' type='checkbox'>exclude every conjugation of verb 'be'</input>
+    <br>
+    <button id='default'>Default</button>
+    <button id='save'>Save</button>
+    <span id='state'></span>
+    <br>
+    <h4>Some References</h4>
+    <ul></ul>
+    <li>
+      <a href='http://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html        '>Part of Speech Tag List</a>
+    </li>
+    <li>
+      <a href='https://sites.google.com/site/partofspeechhelp/home/dt_pdt                        '>Part of Speech Tutorial</a>
+    </li>
+    <li>
+      <a href='http://nlp.stanford.edu:8080/parser/index.jsp                                     '>Stanford Parser Online</a>
+    </li>
+    <li>
+      <a href='http://www.yourdictionary.com/index.php/pdf/articles/162.partsofspeechexamples.pdf'>Examples of Parts of Speech</a>
+    </li>
+    <li>
+      <a href='http://conjugator.reverso.net/conjugation-english-verb-be.html                    '>Conjugation of Verb 'Be'</a>
+    </li>
+  </body>
+</html>
