@@ -1,9 +1,15 @@
-%h3 blanker
+%h2 Word Blanker
 
-%textarea{:rows => "3", :cols => "30"}  
-%br
+%h3 How to Use
+%ul
+  %li select some part of speech that you want to make blank ('be' verb can be exceptionally managed)
+  %li put some English texts in 'Add Texts here' and press 'go!' button
+  %li clicking an underlined word switches its appearance
+  %li 'unblank!' button switched the appearance of whole blank words
 
-%h4 Select Part of Speech (default is my favorite set)
+
+
+%h3 Select Part of Speech
 - require 'yaml'
 - tags = YAML.load(File.open(Rails.root.join 'lib', 'tags-with-example.yaml').read)
 %select#POS{multiple: 'multiple', size: 15}
@@ -13,9 +19,33 @@
 
 %input#be{type: 'checkbox'} exclude every conjugation of verb 'be'
 %br
-%button#default default
+%button#default Default
+%br
+
+
+
+%h3 Add Texts Here
+%textarea{:rows => "3", :cols => "30"}  
+%br
 
 %button#blank go!
 %button#unblank unblank!
 
+
+
+%h3 Blankable Texts
 .texts
+
+
+
+%h4 References
+- links = [['http://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html        ', 'Part of Speech Tag List    '],
+           ['https://sites.google.com/site/partofspeechhelp/home/dt_pdt                        ', 'Part of Speech Tutorial    '],
+           ['http://nlp.stanford.edu:8080/parser/index.jsp                                     ', 'Stanford Parser Online     '],
+           ['http://www.yourdictionary.com/index.php/pdf/articles/162.partsofspeechexamples.pdf', 'Examples of Parts of Speech'],
+           ['http://conjugator.reverso.net/conjugation-english-verb-be.html                    ', "Conjugation of Verb 'Be'   "],
+           ['https://github.com/hi-ogawa/blanker                                               ', "Github repository          "]]
+%ul           
+- links.each do |src, name|
+  %li
+    %a{href: src}= name
