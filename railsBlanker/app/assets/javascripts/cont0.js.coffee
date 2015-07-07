@@ -2,10 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-bes = [ 'be'
-        'am', 'are', 'is'
-        'was', 'ware'
-        'being', 'been' ]
+bes = [ 'be'                # infinitive
+        'am', 'are', 'is'   # present
+        'was', 'ware'       # past
+        'being', 'been'     # continuous, past particle
+        "'m", "'re", "'s"   # abbreviation
+      ]
 
 makeBlankableDom = (xml) ->
         invisible = 'white'
