@@ -16,9 +16,12 @@ First, I implemented the program which made words in sentence blank randomly, th
 There are two ways to use this.
 	
 - just access [here](http://often-test-app:3000/) and try it.
+
+[![Alt text for your video](http://img.youtube.com/vi/MV6pw9mtUHE/0.jpg)](https://youtu.be/MV6pw9mtUHE)
+
 - or, you can use it with a chrome extension which can be installed (but actually the chrome extension is not published, sorry).
 
-[![Alt text for your video](http://img.youtube.com/vi/HiqNG8jhgA8/0.jpg)](https://youtu.be/HiqNG8jhgA8)
+[![Alt text for your video](http://img.youtube.com/vi/SWaINEjQxus/0.jpg)](https://youtu.be/SWaINEjQxus)
 
 ## How it is implemented
 
