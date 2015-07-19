@@ -79,7 +79,7 @@
       }
       $sp = txts.shift();
       return chrome.runtime.sendMessage({
-        url: "http://often-test-app.xyz:3000/cont0/blank",
+        url: "http://often-test-app2.xyz/cont0/blank",
         type: "0",
         sentence: $sp.text()
       }, function(responseText) {
