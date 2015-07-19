@@ -21,8 +21,8 @@ class Cont0Controller < ApplicationController
 
   def call_tagger(input_str)
     # you have to run the pos tagger server like this
-    # prompt> cd blanker/stanford-postagger-2011-04-20
-    # prompt> java -mx300m -cp stanford-postagger.jar edu.stanford.nlp.tagger.maxent.MaxentTaggerServer -model models/left3words-wsj-0-18.tagger -port 3010
+    # prompt> cd myapps/stanford-postagger-2015-04-20
+    # prompt> nohup java -mx300m -cp stanford-postagger.jar edu.stanford.nlp.tagger.maxent.MaxentTaggerServer -model models/english-left3words-distsim.tagger -port 3010 >/dev/null 2>&1 &
 
     ## the behaviour of POS-tagger (from input_str => output_str)
     # /(\ |\n)*/   ->  nil                    (any white spaces turn into nil)

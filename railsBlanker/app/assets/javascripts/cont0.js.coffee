@@ -68,7 +68,8 @@ blank = ->
                 console.log txt
                 xhr = new XMLHttpRequest()
                 param = "sentence=#{encodeURIComponent(txt)}"
-                xhr.open "POST", "http://often-test-app.xyz:3000/cont0/blank", true
+                # xhr.open "POST", "http://often-test-app.xyz:3000/cont0/blank", true
+                xhr.open "POST", "http://often-test-app2.xyz/cont0/blank", true
                 xhr.setRequestHeader "Content-type", "application/x-www-form-urlencoded"
                 xhr.onreadystatechange = ->
                     if xhr.readyState is 4
