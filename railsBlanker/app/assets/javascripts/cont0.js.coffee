@@ -10,8 +10,8 @@ bes = [ 'be'                # infinitive
       ]
 
 makeBlankableDom = (xml) ->
-        invisible = 'white'
-        visible = 'black'
+        invisible = 'rgb(255, 255, 255)'
+        visible = 'rgb(0, 0, 0)'
         $sp = $ "<span>"
         
         $(xml).find("wt").each ->
@@ -26,12 +26,12 @@ makeBlankableDom = (xml) ->
 
            # add blankable class based on options
            if $('#POS').val().indexOf(pos) isnt -1
-                console.log "you're gonna be blank - #{pos} - #{word}"
+                console.log "blank - #{pos} - #{word}"
                 $sp_word.addClass("blankable")
 
            # be verb is exceptional     
            if $("#be")[0].checked and pos.match(/^VB/) and bes.indexOf(word) isnt -1
-                console.log "but you're exceptional be - #{word}"
+                console.log "exceptional - #{word}"
                 $sp_word.removeClass("blankable")
            
            $sp.append $sp_word, ' '
@@ -39,6 +39,8 @@ makeBlankableDom = (xml) ->
         $blankables = $sp.find(".blankable").css "color": invisible
         $blankables.css "border-bottom": "1px solid #{visible}"
                    .click ->
+                        console.log $(this).text()
+                        console.log $(this).css 'color'
                         if $(this).css("color") is visible then $(this).css "color": invisible
                         else                                    $(this).css "color": visible
         b = false
